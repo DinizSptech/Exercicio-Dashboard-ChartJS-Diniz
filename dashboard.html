@@ -1,0 +1,89 @@
+<style>
+    .dashboards{
+        height: 90vh;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        background-color: whitesmoke;
+        border: 20px solid rgb(58, 56, 63); 
+        display: flex; 
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+</style>
+<body>
+    <div class="dashboards">
+        <div>
+            <canvas id="myChart" style="height: 80vh; width: 40vw;"></canvas>
+        </div>
+        <div>
+            <canvas id="myChart2" style="height: 80vh; width: 40vw;"></canvas>
+        </div>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const ctx = document.getElementById("myChart");
+    const ctx2 = document.getElementById("myChart2");
+
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+        datasets: [
+        {
+            borderColor:'rgb(255, 99, 132)',
+            backgroundColor: 'rgb(255, 99, 132)',
+            label: "Temperatura",
+            data: [30,29,28,25,22,23],
+            borderWidth: 3,
+          },
+        {
+            borderColor:'rgb(54, 162, 235)',
+            backgroundColor: 'rgb(54, 162, 235)',
+            label: "Umidade",
+            data: [80,82,80,85,82,83],
+            borderWidth: 3,
+          }
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+    new Chart(ctx2, {
+      type: "bar",
+      data: {
+        labels: ["Janeiro","Fevereiro","Março","Abril","Maio","Junho"],
+        datasets: [
+        {
+            borderColor:'rgb(255, 99, 132)',
+            backgroundColor: 'rgb(255, 99, 132)',
+            label: "Temperatura Média",
+            data: [22,24,27,23,20,18],
+            borderWidth: 0,
+          },
+        {
+            borderColor:'rgb(54, 162, 235)',
+            backgroundColor: 'rgb(54, 162, 235)',
+            label: "Umidade Média",
+            data: [90,89,93,87,88,82],
+            borderWidth: 0,
+          }
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  </script>
+</body>
